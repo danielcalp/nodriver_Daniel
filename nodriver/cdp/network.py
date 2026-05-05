@@ -2213,7 +2213,7 @@ class ClientSecurityState:
         return cls(
             initiator_is_secure_context=bool(json['initiatorIsSecureContext']),
             initiator_ip_address_space=IPAddressSpace.from_json(json['initiatorIPAddressSpace']),
-            private_network_request_policy=PrivateNetworkRequestPolicy.from_json(json['privateNetworkRequestPolicy']),
+            private_network_request_policy=PrivateNetworkRequestPolicy.from_json(json.get('privateNetworkRequestPolicy') or json.get('localNetworkAccessRequestPolicy')),
         )
 
 
